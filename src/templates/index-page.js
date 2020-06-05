@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
+import SectionTitle from '../components/SectionTitle'
 import BlogRoll from '../components/BlogRoll'
 
 export const IndexPageTemplate = ({
@@ -27,90 +28,62 @@ export const IndexPageTemplate = ({
       }}
     >
       <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
+        className="home__heading"
       >
         <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
+          className="home__heading__title"
         >
           {title}
         </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
+        <h2
+          className="home__heading__subtitle"
         >
           {subheading}
-        </h3>
+        </h2>
       </div>
     </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section className="home__section-intro">
+      <SectionTitle className="home__section-intro__title" content={mainpitch.title} />
+      <div className="home__section-intro__container">
+        <div className="home__section-intro__container__description">
+          <p>{mainpitch.description}</p>
         </div>
       </div>
     </section>
+    <section className="home__section-products">
+      <SectionTitle className="home__section-products__title" content="Mon savoir-faire" />
+      <div className="home__section-products__container">
+        <div className="home__section-products__container__slider">  
+          {/* slider goes here */}
+        </div>
+      </div>
+    </section>
+    <section className="home__section-skills">
+      <SectionTitle className="home__section-skills__title" content="Vous êtes recruteur ?" subtitle="Un éventail de compétences à votre disposition" />
+      <div className="home__section-skills__container">
+        <div className="home__section-skills__container__figure">  
+          {/* hexagonal figures */}
+        </div>
+      </div>
+    </section>
+    <section className="home__section-projects">
+      <SectionTitle className="home__section-projects__title" content="Mes réalisations" />
+      <div className="home__section-projects__container">
+        <div className="home__section-projects__container__slider">  
+          {/* slider goes here */}
+        </div>
+      </div>
+    </section>
+    <section className="home__section-partners">
+      <SectionTitle className="home__section-partners__title" content="Mes clients &amp; collaborateurs" />
+      <div className="home__section-partners__container">
+        <div className="home__section-partners__container__slider">  
+          {/* slider goes here */}
+        </div>
+      </div>
+    </section>
+    <Features gridItems={intro.blurbs} />
+    <BlogRoll />
   </div>
 )
 
